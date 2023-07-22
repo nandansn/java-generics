@@ -17,9 +17,14 @@ public class Calculator {
         System.out.println(a+c);
     }
 
-    public void add(List<Integer> numbers) {
-        int sum = numbers.stream().reduce(0, (a,b) -> a +b);
-        System.out.println(sum);
+    public double add(List<? extends  Number> numbers) {
+        double sum = numbers.stream().mapToDouble(Number::doubleValue).sum();
+        return sum;
     }
+
+    private void add(int... arg) {
+        System.out.println("var arg");
+    }
+
 
 }
